@@ -9,10 +9,8 @@ res <- c(60, 300)[arg[3]]
 
 # select years
 # years selection for the nodes
-slc0 <- 1:arg[5]+(arg[1]-1)*arg[5]
-# years selection for the job
-slc <- 1:arg[6]+(arg[4]-1)*arg[6]
-years <- read.table("extData/years.txt")[slc0[slc],]
+slc <- 1:arg[5]+(arg[1]-1)*arg[5]
+years <- read.table("extData/years.txt")[slc,]
 # remove missing lines
 years <- years[!is.na(years)]
 
@@ -35,4 +33,4 @@ if (length(years)>0) {
 #     print(slc0[slc])
 #   }
 # }
-# arg = c(1, 1, 1, 2, 12, 2)
+# arg = c(1, 1, 1, 2, 24)
