@@ -2,6 +2,7 @@
 
 export(extract_data)
 export(get_climate_noam)
+export(getextract_climate_noam)
 importFrom(raster,extract)
 importFrom(raster,raster)
 importFrom(utils,download.file)

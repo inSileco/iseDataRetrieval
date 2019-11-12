@@ -1,28 +1,35 @@
-arg <- as.numeric(commandArgs(trailingOnly = TRUE))
-
 # load package
 devtools::load_all()
-
-# select variables
-info <- c("cmi", "bio")[arg[2]]
-res <- c(60, 300)[arg[3]]
-
-# select years
-# years selection for the nodes
-slc <- 1:arg[5]+(arg[1]-1)*arg[5]
-years <- read.table("extData/years.txt")[slc,]
-# remove missing lines
-years <- years[!is.na(years)]
-
-if (length(years)>0) {
-  # retrieve data
-  get_climate_noam(years, info, res)
-  # plots coordinates
-  pts <- readRDS("extData/plots_coords.rds")
-  # extract data (create output)
-  extract_data(years, info, pts, base = paste0("climdata_res", res, "_"))
+# plots
+pts <- readRDS("extData/plots_coords.rds")
+# for loop
+for (res in c(300, 60)) {
+  for (info in c("cmi", "bio")) {
+    for (year in c(1900:2015, 2018))
+      getextract_climate_noam(pts, year, info, res)
+  }
 }
 
+#previously
+# arg <- as.numeric(commandArgs(trailingOnly = TRUE))
+# select variables
+# info <- c("cmi", "bio")[arg[2]]
+# res <- c(60, 300)[arg[3]]
+# select years
+# years selection for the nodes
+# slc <- 1:arg[5]+(arg[1]-1)*arg[5]
+# years <- read.table("extData/years.txt")[slc,]
+# # remove missing lines
+# years <- years[!is.na(years)]
+#
+# if (length(years)>0) {
+#   # retrieve data
+#   get_climate_noam(years, info, res)
+#   # plots coordinates
+#   pts <- readRDS("extData/plots_coords.rds")
+#   # extract data (create output)
+#   extract_data(years, info, pts, base = paste0("climdata_res", res, "_"))
+# }
 # for (i in 1:10) {
 #   cat("node", i, "\n")
 #   for (j in 1:6) {
