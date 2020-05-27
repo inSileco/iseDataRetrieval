@@ -1,10 +1,10 @@
+^.github/
 ^inst/_pkgdown\.yml$
 ^\.Rproj\.user$
 ^.*\.Rproj$
 ^appveyor\.yml$
 ^\.travis\.yml$
 ^\.gitignore
-^Makefile
 ^README\.md
 ^News\.md
 LICENSE
