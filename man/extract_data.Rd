@@ -4,8 +4,16 @@
 \alias{extract_data}
 \title{extract climate data}
 \usage{
-extract_data(years, info, geom, path = "climateData/",
-  outdir = "output/", base = "res_", quiet = FALSE, rm_dir = TRUE)
+extract_data(
+  years,
+  info,
+  geom,
+  path = "climateData/",
+  outdir = "output/",
+  base = "res_",
+  quiet = FALSE,
+  rm_dir = TRUE
+)
 }
 \arguments{
 \item{years}{vector of selected years (numeric).}

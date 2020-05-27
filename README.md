@@ -1,2 +1,3 @@
 # inSilecoDataRetrieval
-Miscellaneous functions and scripts for data retrieval
+
+Miscellaneous functions and scripts for data retrieval.

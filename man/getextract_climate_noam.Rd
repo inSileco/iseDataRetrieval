@@ -4,10 +4,17 @@
 \alias{getextract_climate_noam}
 \title{Retrieve raster of climate data for North America and extract values}
 \usage{
-getextract_climate_noam(geom, year = 1900, info = c("bio", "cmi",
-  "mint", "maxt", "pcp", "sg"), res = 300, path = "climateData/",
-  outdir = "output/", rm_zip = TRUE, rm_files = TRUE,
-  quiet = FALSE)
+getextract_climate_noam(
+  geom,
+  year = 1900,
+  info = c("bio", "cmi", "mint", "maxt", "pcp", "sg"),
+  res = 300,
+  path = "climateData/",
+  outdir = "output/",
+  rm_zip = TRUE,
+  rm_files = TRUE,
+  quiet = FALSE
+)
 }
 \arguments{
 \item{geom}{geometry used for extraction.}

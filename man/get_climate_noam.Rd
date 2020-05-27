@@ -4,9 +4,14 @@
 \alias{get_climate_noam}
 \title{Retrieve raster of climate data for North America}
 \usage{
-get_climate_noam(years = 1900:2015, info = c("bio", "cmi", "mint",
-  "maxt", "pcp", "sg"), res = 300, path = "climateData/",
-  rm_zip = TRUE, quiet = FALSE)
+get_climate_noam(
+  years = 1900:2015,
+  info = c("bio", "cmi", "mint", "maxt", "pcp", "sg"),
+  res = 300,
+  path = "climateData/",
+  rm_zip = TRUE,
+  quiet = FALSE
+)
 }
 \arguments{
 \item{years}{vector of selected years (numeric).}
