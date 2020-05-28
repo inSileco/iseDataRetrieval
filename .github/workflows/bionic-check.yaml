@@ -15,10 +15,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
-      - name: Install apt-get packages
-        run: |-
-          sudo apt-get update
-          sudo apt-get install -y libmagick++ texlive-latex-extra
+      # - name: Install apt-get packages
+      #   run: |-
+      #     echo "Set disable_coredump false" >> /etc/sudo.conf
       - name: Query dependencies
         run: |
           install.packages('remotes')
