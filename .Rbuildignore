@@ -6,6 +6,8 @@
 ^\.travis\.yml$
 ^\.gitignore
 ^README\.md
+^README\.Rmd
+^README_files
 ^News\.md
 LICENSE
 record_updates.txt
