@@ -2,6 +2,7 @@
 #' @importFrom curl curl
 #' @importFrom magick image_read image_read_svg
 #' @importFrom memoise memoise
+#' @importFrom rsvg rsvg_raw
 
 NULL
 
