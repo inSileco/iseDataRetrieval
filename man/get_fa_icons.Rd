@@ -34,3 +34,7 @@ val <- search_fa_icons("^y")
 icons <- get_fa_icons(val, "png", res = 256)
 plot(magick::image_append(icons))
 }
+\references{
+\url{https://fontawesome.com/}
+\url{https://github.com/encharm/Font-Awesome-SVG-PNG}
+}

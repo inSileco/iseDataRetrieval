@@ -12,8 +12,7 @@ getextract_climate_noam(
   path = "climateData/",
   outdir = "output/",
   rm_zip = TRUE,
-  rm_files = TRUE,
-  quiet = FALSE
+  rm_files = TRUE
 )
 }
 \arguments{
@@ -32,8 +31,6 @@ getextract_climate_noam(
 \item{rm_zip}{a logical. Should zip files be removed?}
 
 \item{rm_files}{a logical. Should raster files be removed after extraction?}
-
-\item{quiet}{Should extra information reported on progress be suppressed?}
 }
 \description{
 Retrieve raster of climate data for North America and extract values

@@ -1,9 +1,10 @@
+#' @importFrom cli style_bold
 #' @importFrom crayon blue yellow green red
-#' @importFrom curl curl
+#' @importFrom curl curl curl_download
 #' @importFrom magick image_read image_read_svg
 #' @importFrom memoise memoise
 #' @importFrom rsvg rsvg_raw
-
+#' @importFrom utils unzip
 NULL
 
 

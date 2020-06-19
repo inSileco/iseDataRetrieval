@@ -35,3 +35,6 @@ extract_data(
 \description{
 extract climate data
 }
+\examples{
+# res <- extract_data(1970:2010, "bio", "bash/data", geom = cty)
+}

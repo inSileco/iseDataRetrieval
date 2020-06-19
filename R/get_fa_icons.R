@@ -5,7 +5,7 @@
 #' @param res resolution for png files (ignored for svg), either 16, 22, 24, 32, 48, 64, 128, or 256.
 #' @param pattern character string containing a regular expression (see [grep()]).
 #'
-#' @reference
+#' @references
 #' <https://fontawesome.com/>
 #' <https://github.com/encharm/Font-Awesome-SVG-PNG>
 #'

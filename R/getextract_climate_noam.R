@@ -8,7 +8,6 @@
 #' @param outdir output directory.
 #' @param rm_zip a logical. Should zip files be removed?
 #' @param rm_files a logical. Should raster files be removed after extraction?
-#' @param quiet Should extra information reported on progress be suppressed?
 #'
 #' @references
 #' <ftp://ftp.nrcan.gc.ca/pub/outgoing/NAM_grids>
@@ -17,33 +16,30 @@
 
 getextract_climate_noam <- function(geom, year = 1900,
   info =  c("bio", "cmi", "mint", "maxt", "pcp", "sg"), res = 300,
-  path = "climateData/", outdir = "output/", rm_zip = TRUE, rm_files = TRUE,
-  quiet = FALSE) {
+  path = "climateData/", outdir = "output/", rm_zip = TRUE, rm_files = TRUE) {
 
   stopifnot(res %in% c(60, 300))
   dir.create(path, showWarnings = FALSE)
   dir.create(outdir, showWarnings = FALSE)
   info <- match.arg(info)
   #
-  get_unique_noam(year, info, res, path, rm_zip, quiet)
-  extract_unique_noam(geom, year, info, res, path, outdir, rm_files, quiet)
+  get_unique_noam(year, info, res, path)
+  extract_unique_noam(geom, year, info, res, path, outdir)
   invisible(NULL)
 }
 
 
 
-get_unique_noam <- function(year, info, res, path, rm_zip, quiet) {
+get_unique_noam <- function(year, info, res, path) {
 
   beg <- paste0("ftp://ftp.nrcan.gc.ca/pub/outgoing/NAM_grids/zipfiles",
     res, "/")
   end <- paste0("_", res, "arcsec.zip")
 
-  if (!quiet) cat("==> downloading data for", year," .....\n")
   zout <- paste0(path, "/", info, year, ".zip")
-  download.file(paste0(beg, info, year, end), destfile = zout, quiet = quiet)
+  curl_download(paste0(beg, info, year, end), destfile = zout)
   unzip(zout, exdir = path)
-  if (rm_zip) unlink(zout)
-  if (!quiet) cat(".... done!\n")
+  unlink(zout)
   invisible(NULL)
 }
 

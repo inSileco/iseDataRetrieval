@@ -11,7 +11,9 @@
 #'
 #' @importFrom raster raster extract
 #' @export
-
+#'
+#' @examples
+#' # res <- extract_data(1970:2010, "bio", "bash/data", geom = cty)
 
 extract_data <- function(years, info, geom, path = "climateData/",
   outdir = "output/", base = "res_", quiet = FALSE, rm_dir = TRUE) {
@@ -20,7 +22,7 @@ extract_data <- function(years, info, geom, path = "climateData/",
   ## pattern
   pat <- paste0(info, ".*.asc$")
   for (year in years) {
-    cat("==>", year, "\n")
+    msgInfo("now extracting values from year", year)
     nm_fo <- paste0(path, year)
     vc_fl <- list.files(nm_fo, pattern = pat, full.names = TRUE)
     # extract (NB st_transform() done automatically with a warning)
