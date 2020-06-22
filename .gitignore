@@ -4,6 +4,7 @@ Makefile
 output
 climateData
 *.gpkg
+2018
 
 
 # History files

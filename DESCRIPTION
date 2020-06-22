@@ -1,7 +1,7 @@
 Package: inSilecoDataRetrieval
 Title: Data retrieval functions for North America climate data
-Date: 2020-06-22
-Version: 0.0.0.9000
+Date: 2020-10-05
+Version: 0.0.1
 Authors@R: c(
   person("Kevin", "Cazelles", email = "kcazelle@uoguelph.ca", comment = c(ORCID = "0000-0001-6619-9874"), role = c("aut", "cre"))
   )
@@ -26,5 +26,5 @@ Suggests:
 URL: https://github.com/inSileco/inSilecoDataRetrieval
 BugReports: https://github.com/inSileco/inSilecoDataRetrieval/issues
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

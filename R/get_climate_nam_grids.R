@@ -3,7 +3,10 @@
 #' @param years vector of selected years (numeric), all years from 1900 until 2018 are available.
 #' @param infos character string specifying the data to be downloaded. Available data are "bio", "cmi", "mint", "maxt", "pcp" and "sg" (see details).
 #' @param res resolution of the raster files to be downloaded in arcsec (60 or 300arcsed, i.e. 10km2 or 2km2), default is set to 300.
-#' @param path path to the folder where files will be stored.
+#' @param path path to the folder where files are or will be stored.
+#' @param geom geometry used for extraction.
+#' @param pattern a regular expression. Only file names which match the regular expression will be returned (see [list.files()]).
+#' @param ... additional parameters to be passed to [list.files()].
 #'
 #' @details
 #' * `bio` : 19 bioclimatic variables,
@@ -20,8 +23,9 @@
 #' @export
 #' @examples
 #' \dontrun{
-#'  get_climate_nam_grids(2016:2018)
-#'  get_climate_nam_grids(2000:2001, c("bio", "sg", "pcp"))
+#'  get_climate_nam_grids(2018)
+#'  get_climate_nam_grids(2000:2018, c("maxt", "mint", "pcp"))
+#'  # extract_climate_data("2018", get_gadm('CAN', 1)[9, ], full.names = TRUE)
 #' }
 
 get_climate_nam_grids <- function(years, infos = "bio", res = 300, path = ".") {
@@ -38,12 +42,13 @@ get_climate_nam_grids <- function(years, infos = "bio", res = 300, path = ".") {
     msgInfo("Downloading grids of", style_bold(info))
 
     for (year in years) {
-      msgInfo("info:", style_bold(info), "year:", style_bold(year))
+      msgInfo("info:", style_bold(info), cli::symbol$arrow_right, "year:",
+        style_bold(year), " ", appendLF = FALSE)
       zout <- tempfile(fileext = ".zip")
       curl_download(paste0(beg, info, year, end), destfile = zout)
       unzip(zout, exdir = path)
       unlink(zout)
-      msgSuccess("done!")
+      msgSuccess("")
     }
   }
 
@@ -51,44 +56,15 @@ get_climate_nam_grids <- function(years, infos = "bio", res = 300, path = ".") {
 }
 
 
-# @param geom geometry used for extraction.
+#' @describeIn get_climate_nam_grids extract data from a nam grid.
+#' @export
 
-# extract_climate_data <- function(files, geom) {
-#
-#   val <- lapply(lapply(vc_fl, raster), function(x) extract(x, y =  geom))
-#   tmp <- as.data.frame(do.call(cbind, val))
-#
-#   names(tmp) <- paste0(
-#     gsub(".asc", "", list.files(nm_fo, pattern = pat)),
-#     "_", year)
-#   saveRDS(tmp, paste0(outdir, base, info, "_", year, ".rds"))
-#
-# }
-
-
-
-
-
-# extract_data <- function(years, info, geom, path = "climateData/",
-#   outdir = "outdput/", base = "res_", quiet = FALSE, rm_dir = TRUE) {
-#   ##
-#   dir.create(outdir, showWarnings = FALSE)
-#   ## pattern
-#   pat <- paste0(info, ".*.asc$")
-#   for (year in years) {
-#     msgInfo("now extracting values from year", year)
-#     nm_fo <- paste0(path, year)
-#     vc_fl <- list.files(nm_fo, pattern = pat, full.names = TRUE)
-#     # extract (NB st_transform() done automatically with a warning)
-#     val <- lapply(lapply(vc_fl, raster), function(x) extract(x, y =  geom))
-#     tmp <- as.data.frame(do.call(cbind, val))
-#
-#     names(tmp) <- paste0(
-#       gsub(".asc", "", list.files(nm_fo, pattern = pat)),
-#       "_", year)
-#     saveRDS(tmp, paste0(outdir, base, info, "_", year, ".rds"))
-#     # remove files
-#     if (rm_dir) unlink(vc_fl, recursive = TRUE)
-#   }
-#   NULL
-# }
+extract_climate_data <- function(path, geom, pattern = "\\.asc$|\\.tif$", ...) {
+  fls <- list.files(path, pattern = pattern, ...)
+  nmc <- last_part(fls)
+  out <- lapply(lapply(fls, raster), 
+    function(x) extract(crop(x, y =  geom), y =  geom))
+  names(out) <- nmc
+  out
+}
+ 

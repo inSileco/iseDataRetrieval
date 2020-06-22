@@ -3,7 +3,7 @@
 #' @importFrom curl curl curl_download
 #' @importFrom magick image_read image_read_svg
 #' @importFrom memoise memoise
-#' @importFrom raster getData raster
+#' @importFrom raster extract getData raster crop
 #' @importFrom rsvg rsvg_raw
 #' @importFrom sf st_read
 #' @importFrom utils unzip
@@ -21,9 +21,9 @@ gadmurl <- "https://biogeo.ucdavis.edu/data/gadm3.6/"
 
 # see inSilecoMisc
 
-msgInfo <- function(...) {
+msgInfo <- function(..., appendLF = TRUE) {
   txt <- paste(cli::symbol$info, ...)
-  message(blue(txt))
+  message(blue(txt), appendLF = appendLF)
   invisible(txt)
 }
 
@@ -63,4 +63,10 @@ howManyRC <- function(n) {
         nbc <- fsq + 1
     #
     c(nbr, nbc)
+}
+
+
+last_part <- function(x) {
+  tmp <- sub(".*/([[:graph:]]+)", "\\1", x)
+  sub("([[:graph:]]+)\\.[[:alnum:]]+$", "\\1", tmp)
 }

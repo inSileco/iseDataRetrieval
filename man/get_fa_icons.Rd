@@ -19,7 +19,7 @@ search_fa_icons(pattern)
 \item{pattern}{character string containing a regular expression (see \code{\link[=grep]{grep()}}).}
 }
 \value{
-An objet of class \code{magick-image}, see \code{\link[magick:image_read]{magick::image_read()}}.
+An objet of class \code{magick-image}, see \code{\link[magick:editing]{magick::image_read()}}.
 }
 \description{
 Retrieve (free) font awesome icons.

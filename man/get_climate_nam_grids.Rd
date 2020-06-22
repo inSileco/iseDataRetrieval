@@ -2,9 +2,12 @@
 % Please edit documentation in R/get_climate_nam_grids.R
 \name{get_climate_nam_grids}
 \alias{get_climate_nam_grids}
+\alias{extract_climate_data}
 \title{Download raster of climate data for North America}
 \usage{
 get_climate_nam_grids(years, infos = "bio", res = 300, path = ".")
+
+extract_climate_data(path, geom, pattern = "\\\\.asc$|\\\\.tif$", ...)
 }
 \arguments{
 \item{years}{vector of selected years (numeric), all years from 1900 until 2018 are available.}
@@ -13,7 +16,13 @@ get_climate_nam_grids(years, infos = "bio", res = 300, path = ".")
 
 \item{res}{resolution of the raster files to be downloaded in arcsec (60 or 300arcsed, i.e. 10km2 or 2km2), default is set to 300.}
 
-\item{path}{path to the folder where files will be stored.}
+\item{path}{path to the folder where files are or will be stored.}
+
+\item{geom}{geometry used for extraction.}
+
+\item{pattern}{a regular expression. Only file names which match the regular expression will be returned (see \code{\link[=list.files]{list.files()}}).}
+
+\item{...}{additional parameters to be passed to \code{\link[=list.files]{list.files()}}.}
 }
 \description{
 Download raster of climate data for North America
@@ -28,10 +37,16 @@ Download raster of climate data for North America
 \item \code{sg}  : 16 additional bioclimatic variables.
 }
 }
+\section{Functions}{
+\itemize{
+\item \code{extract_climate_data}: extract data from a nam grid.
+}}
+
 \examples{
 \dontrun{
- get_climate_nam_grids(2016:2018)
- get_climate_nam_grids(2000:2001, c("bio", "sg", "pcp"))
+ get_climate_nam_grids(2018)
+ get_climate_nam_grids(2000:2018, c("maxt", "mint", "pcp"))
+ # extract_climate_data("2018", get_gadm('CAN', 1)[9, ], full.names = TRUE)
 }
 }
 \references{

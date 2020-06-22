@@ -33,6 +33,9 @@
 #' can <- get_gadm("CAN", level = 1, format = "sf")
 #' bel <- get_gadm("BEL", format = "gpkg")
 #' }
+# for (i in raster::getData('ISO3')$ISO3)
+#   get_gadm(i, format = "shp", path = "~/Data/gadm")
+
 
 get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz", "shp", "gpkg")) {
 
@@ -70,6 +73,7 @@ get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz
     msgWarning("Looks like this file has already been downloaded.")
   } else {
     url <- paste0(gadmurl, tmp[1], "/", fln)
+    msgInfo("Accessing", url)
     curl_download(url, destfile = flp)
     msgSuccess("file downloaded!")
   }
@@ -81,13 +85,12 @@ get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz
     flb = gsub('_(shp|gpkg)\\.zip$', '', fln)
   }
 
-  out <- switch(format,
+  switch(format,
      sf = readRDS(flp),
      sp = readRDS(flp),
      kmz = sf::st_read(flp),
      shp = sf::st_read(paste0(path, "/", flb, "_", level, ".shp")),
      gpkg = sf::st_read(flp, layer = paste0(flb, "_", level))
   )
-  return(out)
 }
 
