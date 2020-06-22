@@ -3,7 +3,9 @@
 #' @importFrom curl curl curl_download
 #' @importFrom magick image_read image_read_svg
 #' @importFrom memoise memoise
+#' @importFrom raster getData raster
 #' @importFrom rsvg rsvg_raw
+#' @importFrom sf st_read
 #' @importFrom utils unzip
 NULL
 
@@ -11,11 +13,10 @@ NULL
 # HELPER
 
 ghurl <- "https://github.com/"
-
 ghurlraw <- "https://raw.githubusercontent.com"
-
 pasteURL <- function(...) paste(..., sep = "/")
 
+gadmurl <- "https://biogeo.ucdavis.edu/data/gadm3.6/"
 
 
 # see inSilecoMisc

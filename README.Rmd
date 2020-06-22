@@ -28,7 +28,8 @@ library(inSilecoDataRetrieval)
 ## Retrieve Climate data
 
 ```{r nam, eval = FALSE}
-get_climate_nam_grids(1900:2015, c("bio", "cmi", "mint", "maxt", "pcp", "sg"))
+# Download all data
+get_climate_nam_grids(1900:2018, c("bio", "cmi", "mint", "maxt", "pcp", "sg"))
 ```
 
 ## Retrieve Font Awesome icons
@@ -37,4 +38,12 @@ get_climate_nam_grids(1900:2015, c("bio", "cmi", "mint", "maxt", "pcp", "sg"))
 val <- search_fa_icons("^y")
 icons <- get_fa_icons(val, "png", res = 256)
 plot(magick::image_append(icons))
+```
+
+
+## Retrieve boundaries
+
+```{r gadm}
+plot(get_gadm("BEL", level = 1, path = "output")[4])
+plot(get_gadm("BEL", level = 3, format = "gpkg", path = "output")[4])
 ```
