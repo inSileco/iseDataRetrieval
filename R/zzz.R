@@ -18,6 +18,7 @@ pasteURL <- function(...) paste(..., sep = "/")
 
 gadmurl <- "https://biogeo.ucdavis.edu/data/gadm3.6/"
 
+luurl <- "https://www.agr.gc.ca/atlas/data_donnees/lcv/aafcLand_Use/tif/"
 
 # see inSilecoMisc
 
