@@ -1,6 +1,6 @@
 # inSilecoDataRetrieval
 
-![R-CMD-check](https://github.com/inSileco/inSilecoDataRetrieval/workflows/R-CMD-check/badge.svg)
+![Check R package](https://github.com/inSileco/inSilecoDataRetrieval/workflows/Check%20R%20package/badge.svg)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 Miscellaneous functions and scripts for data retrieval.

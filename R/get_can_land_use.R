@@ -32,5 +32,6 @@ get_can_land_use <- function(years, zones, path = ".") {
       msgSuccess("")
     }
   }
-
+  
+  invisible(0)
 }

@@ -18,7 +18,7 @@ Download raster of land-use (Canada only)
 }
 \examples{
 \dontrun{
- get_can_land_use(1990, 7)
+ image(raster(get_can_land_use(1990, 7)))
 }
 }
 \references{
