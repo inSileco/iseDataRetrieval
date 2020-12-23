@@ -45,7 +45,7 @@ get_climate_nam_grids <- function(years, infos = "bio", res = 300, path = ".") {
       msgInfo("info:", style_bold(info), cli::symbol$arrow_right, "year:",
         style_bold(year), " ", appendLF = FALSE)
       zout <- tempfile(fileext = ".zip")
-      curl_download(paste0(beg, info, year, end), destfile = zout)
+      dl_check(paste0(beg, info, year, end), destfile = zout)
       unzip(zout, exdir = path)
       unlink(zout)
       msgSuccess("")

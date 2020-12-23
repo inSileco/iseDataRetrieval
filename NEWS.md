@@ -1,5 +1,6 @@
 # inSilecoDataRetrieval 0.0.1.9000
 
+* `dl_check()` introduces a file check before proceeding to download.
 * add `get_can_land_use()` that retrieves land-use data for Canada.
 
 # inSilecoDataRetrieval 0.0.1

@@ -74,8 +74,7 @@ get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz
   } else {
     url <- paste0(gadmurl, tmp[1], "/", fln)
     msgInfo("Accessing", url)
-    curl_download(url, destfile = flp)
-    msgSuccess("file downloaded!")
+    dl_check(url, destfile = flp)
   }
 
   if (shp_gpkg) {
