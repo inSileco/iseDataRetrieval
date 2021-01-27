@@ -48,6 +48,12 @@ Download raster of climate data for North America
  get_climate_nam_grids(2000:2018, c("maxt", "mint", "pcp"))
  # extract_climate_data("2018", get_gadm('CAN', 1)[9, ], full.names = TRUE)
 }
+\dontrun{
+can <- get_gadm("CAN", level = 1, format = "sf")  
+get_climate_nam_grids(1990:1991, c("bio")) 
+geom <- readRDS("gadm36_CAN_1_sf.rds")
+extract_climate_data("1990", geom)
+}
 }
 \references{
 \url{ftp://ftp.nrcan.gc.ca/pub/outgoing/NAM_grids}

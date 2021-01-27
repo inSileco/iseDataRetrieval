@@ -1,3 +1,8 @@
+# inSilecoDataRetrieval (devel)
+
+* `full.names` is now set to `TRUE` when files are listed in `extract_climate_data()`.
+* `extract_climate_data()` gains an example.
+
 # inSilecoDataRetrieval 0.0.2
 
 * `dl_check()` introduces a file check before proceeding to download.

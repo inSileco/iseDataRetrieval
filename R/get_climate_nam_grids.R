@@ -48,7 +48,6 @@ get_climate_nam_grids <- function(years, infos = "bio", res = 300, path = ".") {
       dl_check(paste0(beg, info, year, end), destfile = zout)
       unzip(zout, exdir = path)
       unlink(zout)
-      msgSuccess("")
     }
   }
 
@@ -57,10 +56,18 @@ get_climate_nam_grids <- function(years, infos = "bio", res = 300, path = ".") {
 
 
 #' @describeIn get_climate_nam_grids extract data from a nam grid.
+#' @examples
+#' \dontrun{
+#' can <- get_gadm("CAN", level = 1, format = "sf")  
+#' get_climate_nam_grids(1990:1991, c("bio")) 
+#' geom <- readRDS("gadm36_CAN_1_sf.rds")
+#' extract_climate_data("1990", geom)
+#' }
 #' @export
 
 extract_climate_data <- function(path, geom, pattern = "\\.asc$|\\.tif$", ...) {
-  fls <- list.files(path, pattern = pattern, ...)
+  fls <- list.files(path, pattern = pattern, full.names = TRUE, ...)
+  print(fls)
   nmc <- last_part(fls)
   out <- lapply(lapply(fls, raster), 
     function(x) extract(crop(x, y =  geom), y =  geom))
