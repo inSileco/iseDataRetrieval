@@ -6,7 +6,7 @@ output:
 
 # inSilecoDataRetrieval
 
-![R-CMD-check](https://github.com/inSileco/inSilecoDataRetrieval/workflows/R-CMD-check/badge.svg)
+[![Check R package](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-check.yaml)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 
@@ -22,7 +22,7 @@ remotes::install_github("inSileco/iseDataRetrieval")
 Once installed, load the package
 
 ```{r load}
-library(inSilecoDataRetrieval)
+library(iseDataRetrieval)
 ```
 
 ## Retrieve Climate data
