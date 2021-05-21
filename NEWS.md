@@ -1,4 +1,4 @@
-# iseDataRetrieval (devel)
+# iseDataRetrieval 0.0.3
 
 * `inSilecoDataRetrieval` renamed `iseDataRetrieval` 
 * `full.names` is now set to `TRUE` when files are listed in `extract_climate_data()`.

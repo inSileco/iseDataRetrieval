@@ -1,4 +1,4 @@
-# inSilecoDataRetrieval
+# iseDataRetrieval
 
 [![Check R
 package](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-check.yaml)
