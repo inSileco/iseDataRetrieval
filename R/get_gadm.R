@@ -72,7 +72,7 @@ get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz
   if (file.exists(flp)) {
     msgWarning("Looks like this file has already been downloaded.")
   } else {
-    url <- paste0(gadmurl, tmp[1], "/", fln)
+    url <- paste0(gadm_url, tmp[1], "/", fln)
     msgInfo("Accessing", url)
     dl_check(url, destfile = flp)
   }

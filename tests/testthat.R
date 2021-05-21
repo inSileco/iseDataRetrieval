@@ -1,2 +1,2 @@
 library(testthat)
-library(inSilecoDataRetrieval)
+library(iseDataRetrieval)

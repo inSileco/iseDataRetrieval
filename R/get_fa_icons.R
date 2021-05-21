@@ -33,13 +33,13 @@ get_fa_icons <- function(names, format = c("svg", "png"), res = 128) {
     format <- match.arg(format)
 
     if (format == "svg") {
-        urls <- paste0(ghurlraw,
+        urls <- paste0(ghraw_url,
             "/inSileco/Font-Awesome-SVG-PNG/master/black/svg/", names, ".svg")
         image_read_svg(urls)
     } else {
         res <- match.arg(as.character(res),
             as.character(c(16, 22, 24, 32, 48, 64, 128, 256)))
-        urls <- paste0(ghurlraw,
+        urls <- paste0(ghraw_url,
             "/inSileco/Font-Awesome-SVG-PNG/master/black/png/", res, "/",
             names, ".png")
         image_read(urls)
@@ -56,7 +56,7 @@ search_fa_icons <- function(pattern) {
 }
 
 get_fa_names <- function() {
-    con <- curl(pasteURL(ghurl,
+    con <- curl(glue_url(gh_url,
         "inSileco/Font-Awesome-SVG-PNG/tree/master/black/svg"))
     open(con)
     icn <- readLines(con)

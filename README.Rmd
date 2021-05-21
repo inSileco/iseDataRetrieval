@@ -16,7 +16,7 @@ Miscellaneous functions and scripts for data retrieval.
 
 ```r
 if (!require("remotes")) install.packages("remotes")
-remotes::install_github("inSileco/inSilecoDataRetrieval")
+remotes::install_github("inSileco/iseDataRetrieval")
 ```
 
 Once installed, load the package

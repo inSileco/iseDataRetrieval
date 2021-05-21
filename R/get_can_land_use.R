@@ -26,7 +26,7 @@ get_can_land_use <- function(years, zones, path = ".") {
       msgInfo("year", style_bold(i), " zone", style_bold(j), " ", 
         appendLF = FALSE)
       zout <- tempfile(fileext = ".zip")
-      dl_check(url = paste0(luurl, tmp), destfile = zout)
+      dl_check(url = paste0(lu_url, tmp), destfile = zout)
       unzip(zout, exdir = path)
       unlink(zout)
       msgSuccess("File extracted")

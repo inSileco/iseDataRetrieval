@@ -2,7 +2,7 @@
 #'
 #' @param years vector of selected years (numeric), all years from 1900 until 2018 are available.
 #' @param infos character string specifying the data to be downloaded. Available data are "bio", "cmi", "mint", "maxt", "pcp" and "sg" (see details).
-#' @param res resolution of the raster files to be downloaded in arcsec (60 or 300arcsed, i.e. 10km2 or 2km2), default is set to 300.
+#' @param res resolution of the raster files to be downloaded in arcsec (60 or 300arcsec, i.e. 10km2 or 2km2), default is set to 300.
 #' @param path path to the folder where files are or will be stored.
 #' @param geom geometry used for extraction.
 #' @param pattern a regular expression. Only file names which match the regular expression will be returned (see [list.files()]).
@@ -24,7 +24,7 @@
 #' @examples
 #' \dontrun{
 #'  get_climate_nam_grids(2018)
-#'  get_climate_nam_grids(2000:2018, c("maxt", "mint", "pcp"))
+#'  get_climate_nam_grids(2009:2018, c("maxt", "mint", "pcp"))
 #'  # extract_climate_data("2018", get_gadm('CAN', 1)[9, ], full.names = TRUE)
 #' }
 

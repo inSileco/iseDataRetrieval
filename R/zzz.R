@@ -1,6 +1,7 @@
 #' @importFrom cli style_bold
 #' @importFrom crayon blue yellow green red
 #' @importFrom curl curl curl_download
+#' @importFrom glue glue
 #' @importFrom magick image_read image_read_svg
 #' @importFrom memoise memoise
 #' @importFrom raster extract getData raster crop
@@ -12,13 +13,14 @@ NULL
 
 # HELPER
 
-ghurl <- "https://github.com/"
-ghurlraw <- "https://raw.githubusercontent.com"
-pasteURL <- function(...) paste(..., sep = "/")
+gh_url <- "https://github.com/"
+ghraw_url <- "https://raw.githubusercontent.com"
 
-gadmurl <- "https://biogeo.ucdavis.edu/data/gadm3.6/"
+glue_url <- function(...) glue(..., .sep = "/", .envir = parent.frame(1))
 
-luurl <- "https://www.agr.gc.ca/atlas/data_donnees/lcv/aafcLand_Use/tif/"
+gadm_url <- "https://biogeo.ucdavis.edu/data/gadm3.6/"
+
+lu_url <- "https://www.agr.gc.ca/atlas/data_donnees/lcv/aafcLand_Use/tif/"
 
 # see inSilecoMisc
 

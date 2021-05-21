@@ -9,7 +9,7 @@ dl_check(url, destfile, ...)
 \arguments{
 \item{url}{URL of the file to be downloaded (see \code{\link[curl:curl_download]{curl::curl_download()}}).}
 
-\item{destfile}{destination dile (see \code{\link[curl:curl_download]{curl::curl_download()}})}
+\item{destfile}{destination file (see \code{\link[curl:curl_download]{curl::curl_download()}})}
 
 \item{...}{further arguments passed to \code{\link[curl:curl_download]{curl::curl_download()}}.}
 }

@@ -1,6 +1,6 @@
-Package: inSilecoDataRetrieval
-Title: Data retrieval functions for North America climate data
-Date: 2021-01-27
+Package: iseDataRetrieval
+Title: Data retrieval functions
+Date: 2021-05-21
 Version: 0.0.2.9000
 Authors@R: c(
   person("Kevin", "Cazelles", email = "kevin.cazelles@gmail.com", comment = c(ORCID = "0000-0001-6619-9874"), role = c("aut", "cre"))
@@ -13,6 +13,7 @@ Imports:
     cli,
     crayon,
     curl,
+    glue,
     magick,
     memoise,
     raster,
@@ -23,8 +24,8 @@ Suggests:
     rmarkdown,
     sp,
     testthat
-URL: https://github.com/inSileco/inSilecoDataRetrieval
-BugReports: https://github.com/inSileco/inSilecoDataRetrieval/issues
+URL: https://github.com/inSileco/iseDataRetrieval
+BugReports: https://github.com/inSileco/iseDataRetrieval/issues
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

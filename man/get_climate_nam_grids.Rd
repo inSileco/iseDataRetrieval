@@ -14,7 +14,7 @@ extract_climate_data(path, geom, pattern = "\\\\.asc$|\\\\.tif$", ...)
 
 \item{infos}{character string specifying the data to be downloaded. Available data are "bio", "cmi", "mint", "maxt", "pcp" and "sg" (see details).}
 
-\item{res}{resolution of the raster files to be downloaded in arcsec (60 or 300arcsed, i.e. 10km2 or 2km2), default is set to 300.}
+\item{res}{resolution of the raster files to be downloaded in arcsec (60 or 300arcsec, i.e. 10km2 or 2km2), default is set to 300.}
 
 \item{path}{path to the folder where files are or will be stored.}
 
@@ -45,7 +45,7 @@ Download raster of climate data for North America
 \examples{
 \dontrun{
  get_climate_nam_grids(2018)
- get_climate_nam_grids(2000:2018, c("maxt", "mint", "pcp"))
+ get_climate_nam_grids(2009:2018, c("maxt", "mint", "pcp"))
  # extract_climate_data("2018", get_gadm('CAN', 1)[9, ], full.names = TRUE)
 }
 \dontrun{
