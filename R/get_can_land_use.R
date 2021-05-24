@@ -6,32 +6,33 @@
 #'
 #' @references 
 #' <https://open.canada.ca/data/en/dataset/18e3ef1a-497c-40c6-8326-aac1a34a0dec>
+#' <https://www.agr.gc.ca/atlas/supportdocument_documentdesupport/aafcLand_Use/en/ISO_19131_Land_Use_1990__2000_2010_Data_Product_Specifications.pdf>
 #'
 #' @export
 #' @examples
 #' \dontrun{
-#'  image(raster(get_can_land_use(1990, 7)))
+#'  library(raster)
+#'  image(raster(get_can_land_use(2010, 18)))
 #' }
 
 get_can_land_use <- function(years, zones, path = ".") {
   
-  stopifnot(years %in% seq(1990, 2000, 2010))
+  stopifnot(years %in% c(1990, 2000, 2010))
   stopifnot(zones %in% seq(7, 22))
   years <- unique(years)
   zones <- unique(zones)
 
   for (i in years) {
     for (j in zones) {
-      tmp <- sprintf("%04d/IMG_AAFC_LANDUSE_Z%02d_%04d.zip", i, j, i)
-      msgInfo("year", style_bold(i), " zone", style_bold(j), " ", 
-        appendLF = FALSE)
-      zout <- tempfile(fileext = ".zip")
+      fl <- sprintf("IMG_AAFC_LANDUSE_Z%02d_%04d.zip", j, i)
+      tmp <- glue(sprintf("%04d", i), .Platform$file.sep, fl)
+      msgInfo("year", style_bold(i), " zone", style_bold(j))
+      zout <- glue(tempdir(), .Platform$file.sep, fl)
       dl_check(url = paste0(lu_url, tmp), destfile = zout)
-      unzip(zout, exdir = path)
-      unlink(zout)
+      out <- unzip(zout, exdir = path)
       msgSuccess("File extracted")
     }
   }
   
-  invisible(0)
+  invisible(out[grepl("\\.tif$", out)])
 }

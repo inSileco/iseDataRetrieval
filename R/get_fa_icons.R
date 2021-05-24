@@ -14,9 +14,11 @@
 #'
 #' @export
 #' @examples
+#' \dontrun{
 #' val <- search_fa_icons("^y")
 #' icons <- get_fa_icons(val, "png", res = 256)
 #' plot(magick::image_append(icons))
+#' }
 
 get_fa_icons <- function(names, format = c("svg", "png"), res = 128) {
 

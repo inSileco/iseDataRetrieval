@@ -5,7 +5,7 @@ output
 climateData
 *.gpkg
 2018
-
+tmp
 
 # History files
 .Rhistory
