@@ -3,7 +3,6 @@
 * `get_can_land_use()` now properly checks whether the zip file has been downloaded before.
 * `get_can_land_use()` now returns the path to the `.tif` file.
 
-
 # iseDataRetrieval 0.0.3
 
 * `inSilecoDataRetrieval` has been renamed `iseDataRetrieval`.

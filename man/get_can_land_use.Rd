@@ -24,4 +24,5 @@ Download raster of land-use (Canada only)
 }
 \references{
 \url{https://open.canada.ca/data/en/dataset/18e3ef1a-497c-40c6-8326-aac1a34a0dec}
+\url{https://www.agr.gc.ca/atlas/supportdocument_documentdesupport/aafcLand_Use/en/ISO_19131_Land_Use_1990__2000_2010_Data_Product_Specifications.pdf}
 }
