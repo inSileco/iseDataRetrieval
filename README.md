@@ -7,8 +7,10 @@ package](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-ch
 > Miscellaneous functions and scripts for data retrieval.
 
 ⚠️ We recommend using https://github.com/rspatial/geodata for GADM data.
+
 ⚠️ Early versions of the package used to allow for the downloading of the package, 
 we now recommend using the package [fontawesome](https://rstudio.github.io/fontawesome/index.html).
+
 ⚠️ get_climate_nam_grids() is no longer available because data have been removed form the ftp server (there are available here now https://www.wdc-climate.de/ui/project?acronym=CanClim)
 
 

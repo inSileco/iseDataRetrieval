@@ -1,4 +1,4 @@
-# iseDataRetrieval (devel)
+# iseDataRetrieval 0.1.0
 
 * add iso3 as a data set of the package.gss
 * remove `get_climate_nam_grids()`
