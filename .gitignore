@@ -1,11 +1,13 @@
 # Project specific
 .DS_Store
+
 Makefile
 output
 climateData
 *.gpkg
 2018
 tmp
+.vscode
 
 # History files
 .Rhistory

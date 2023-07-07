@@ -1,7 +1,9 @@
 #' Download GADM 3.6 data in all available format.
 #'
 #' @param country ISO3 code of a country, use "?" to get the full list of codes.
-#' @param level administrative level, `level = 0` download administrative boundaries for the entire country. Note that maximum value taken varies among countries (5 is the maximum value encountered).
+#' @param level administrative level, `level = 0` download administrative
+#' boundaries for the entire country. Note that maximum value taken varies
+#' among countries (5 is the maximum value encountered).
 #' @param path path to the folder where files will be stored.
 #' @param format either "sf", "sp", "kmz", "shp" or "gpkg" (see details).
 #'
@@ -21,8 +23,6 @@
 #' A `"SpatialPolygonsDataFrame"` object if `format = "sp"`, otherwise an object
 #' of class `sf`.
 #'
-#' @seealso
-#' [raster::getData()]
 #'
 #' @references
 #' <https://gadm.org/>
@@ -33,20 +33,14 @@
 #' can <- get_gadm("CAN", level = 1, format = "sf")
 #' bel <- get_gadm("BEL", format = "gpkg")
 #' }
-# for (i in raster::getData('ISO3')$ISO3)
-#   get_gadm(i, format = "shp", path = "~/Data/gadm")
-
-
 get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz", "shp", "gpkg")) {
-
-  if (country == "?") {
-    msgInfo("ISO3 codes for countries are as follows:")
-    print(getData('ISO3'))
+  if (missing(country) || country == "?") {
+    cli::cli_alert_info("ISO3 codes for countries are as follows:")
+    print(iseDataRetrieval::iso3)
     return(invisible(NULL))
   } else {
-    iso3 <- getData('ISO3')$ISO3
     country <- country[1L]
-    stopifnot(country %in% iso3)
+    stopifnot(country %in% iseDataRetrieval::iso3)
   }
 
   format <- match.arg(format)
@@ -61,35 +55,40 @@ get_gadm <- function(country, level = 0, path = ".", format = c("sf", "sp", "kmz
 
   shp_gpkg <- format %in% c("shp", "gpkg")
   if (shp_gpkg) {
-    msgInfo(paste0("`", format, "`"),
-      "selected, all administrative levels will be downloaded.")
-  } else tmp[2] <- paste0("_", level, tmp[2])
+    cli::cli_alert_info(
+      paste0("`", format, "`"),
+      "selected, all administrative levels will be downloaded."
+    )
+  } else {
+    tmp[2] <- paste0("_", level, tmp[2])
+  }
 
   # file name
   fln <- paste0("gadm36_", country, tmp[2])
   # file path
   flp <- paste0(path, "/", fln)
   if (file.exists(flp)) {
-    msgWarning("Looks like this file has already been downloaded.")
+    cli::cli_alert_warning("Looks like this file has already been downloaded.")
   } else {
     url <- paste0(gadm_url, tmp[1], "/", fln)
-    msgInfo("Accessing", url)
+    cli::cli_alert_info("Accessing", url)
     dl_check(url, destfile = flp)
   }
 
   if (shp_gpkg) {
-    msgInfo("unzip archive", exdir = path)
+    cli::cli_alert_info("unzip archive", exdir = path)
     unzip(flp, exdir = path)
-    flp = gsub('_(shp|gpkg)\\.zip$', '\\.\\1', flp)
-    flb = gsub('_(shp|gpkg)\\.zip$', '', fln)
+    flp <- gsub("_(shp|gpkg)\\.zip$", "\\.\\1", flp)
+    flb <- gsub("_(shp|gpkg)\\.zip$", "", fln)
   }
 
+  # to do add message to mention that all lvls are dl for shp
+  # create 5 different functions
   switch(format,
-     sf = readRDS(flp),
-     sp = readRDS(flp),
-     kmz = sf::st_read(flp),
-     shp = sf::st_read(paste0(path, "/", flb, "_", level, ".shp")),
-     gpkg = sf::st_read(flp, layer = paste0(flb, "_", level))
+    sf = readRDS(flp),
+    sp = readRDS(flp),
+    kmz = sf::st_read(flp),
+    shp = sf::st_read(paste0(path, "/", flb, "_", level, ".shp")),
+    gpkg = sf::st_read(flp, layer = paste0(flb, "_", level))
   )
 }
-

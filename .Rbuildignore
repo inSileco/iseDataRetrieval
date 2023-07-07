@@ -1,5 +1,3 @@
-^renv$
-^renv\.lock$
 ^.github/
 ^inst/_pkgdown\.yml$
 ^\.Rproj\.user$
@@ -24,3 +22,4 @@ record_updates.txt
 ^output$
 ^climateData$
 ^tmp$
+^.vscode/

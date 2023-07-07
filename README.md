@@ -4,7 +4,13 @@
 package](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inSileco/iseDataRetrieval/actions/workflows/R-CMD-check.yaml)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-Miscellaneous functions and scripts for data retrieval.
+> Miscellaneous functions and scripts for data retrieval.
+
+⚠️ We recommend using https://github.com/rspatial/geodata for GADM data.
+⚠️ Early versions of the package used to allow for the downloading of the package, 
+we now recommend using the package [fontawesome](https://rstudio.github.io/fontawesome/index.html).
+⚠️ get_climate_nam_grids() is no longer available because data have been removed form the ftp server (there are available here now https://www.wdc-climate.de/ui/project?acronym=CanClim)
+
 
 # Installation
 
@@ -19,24 +25,10 @@ Once installed, load the package
 library(iseDataRetrieval)
 ```
 
-## Retrieve Climate data
-
-``` r
-# Download all data
-get_climate_nam_grids(1900:2018, c("bio", "cmi", "mint", "maxt", "pcp", "sg"))
-```
-
-## Retrieve Font Awesome icons
-
-``` r
-val <- search_fa_icons("^y")
-icons <- get_fa_icons(val, "png", res = 256)
-plot(magick::image_append(icons))
-```
-
-![](README_files/figure-gfm/fa-1.png)<!-- -->
 
 ## Retrieve boundaries
+
+⚠️ See https://github.com/rspatial/geodata 
 
 ``` r
 plot(get_gadm("BEL", level = 1, path = "output")[4])

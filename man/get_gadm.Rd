@@ -14,7 +14,9 @@ get_gadm(
 \arguments{
 \item{country}{ISO3 code of a country, use "?" to get the full list of codes.}
 
-\item{level}{administrative level, \code{level = 0} download administrative boundaries for the entire country. Note that maximum value taken varies among countries (5 is the maximum value encountered).}
+\item{level}{administrative level, \code{level = 0} download administrative
+boundaries for the entire country. Note that maximum value taken varies
+among countries (5 is the maximum value encountered).}
 
 \item{path}{path to the folder where files will be stored.}
 
@@ -49,7 +51,4 @@ bel <- get_gadm("BEL", format = "gpkg")
 }
 \references{
 \url{https://gadm.org/}
-}
-\seealso{
-\code{\link[raster:getData]{raster::getData()}}
 }

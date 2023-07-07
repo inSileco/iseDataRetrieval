@@ -7,11 +7,11 @@
 
 dl_check <- function(url, destfile, ...) {
   if (file.exists(destfile)) {
-    msgWarning("skipped (already dowloaded)")
+    cli::cli_alert_warning("skipped (already dowloaded)")
   } else {
-    msgInfo("Accessing", url)
+    cli::cli_alert_info("Accessing <{url}>")
     curl::curl_download(url, destfile, ...)
-    msgSuccess("file downloaded!")
+    cli::cli_alert_success("file downloaded!")
   }
   invisible(TRUE)
 }

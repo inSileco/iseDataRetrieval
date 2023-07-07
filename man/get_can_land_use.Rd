@@ -7,22 +7,22 @@
 get_can_land_use(years, zones, path = ".")
 }
 \arguments{
-\item{years}{vector of selected years (numeric) or or several 1990, 2000 or 2010.}
+\item{years}{vector of selected years (numeric) one or several among 2000,
+2005, 2010, 2015 or 2020.}
 
 \item{zones}{UTM zones. Relevant zones are 7 to 22 (for Canada).}
 
-\item{path}{path to the folder where files will be stored.}
+\item{path}{path where files must be stored.}
 }
 \description{
 Download raster of land-use (Canada only)
 }
 \examples{
 \dontrun{
- library(raster)
- image(raster(get_can_land_use(2010, 18)))
+library(terra)
+plot((rast(get_can_land_use(2010, 18))))
 }
 }
 \references{
-\url{https://open.canada.ca/data/en/dataset/18e3ef1a-497c-40c6-8326-aac1a34a0dec}
-\url{https://www.agr.gc.ca/atlas/supportdocument_documentdesupport/aafcLand_Use/en/ISO_19131_Land_Use_1990__2000_2010_Data_Product_Specifications.pdf}
+\url{https://open.canada.ca/data/en/dataset/fa84a70f-03ad-4946-b0f8-a3b481dd5248/resource/6b4a00e2-a629-4e48-9592-9ac8c779688e?inner_span=True}
 }

@@ -1,7 +1,7 @@
 Package: iseDataRetrieval
-Title: Data retrieval functions
-Date: 2021-05-24
-Version: 0.0.3.9000
+Title: inSileco Miscelleneaous Data Retrieval Functions
+Date: 2023-07-07
+Version: 0.0.3.9001
 Authors@R: c(
   person("Kevin", "Cazelles", email = "kevin.cazelles@gmail.com", comment = c(ORCID = "0000-0001-6619-9874"), role = c("aut", "cre"))
   )
@@ -11,22 +11,18 @@ Depends:
 License: GPL (>= 2)
 Imports:
     cli,
-    crayon,
     curl,
     glue,
-    magick,
-    memoise,
-    raster,
-    rsvg,
     sf,
     utils
 Suggests:
     rmarkdown,
+    terra,
     sp,
     testthat
 URL: https://github.com/inSileco/iseDataRetrieval
 BugReports: https://github.com/inSileco/iseDataRetrieval/issues
 LazyData: true
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)

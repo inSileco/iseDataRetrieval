@@ -1,5 +1,10 @@
 # iseDataRetrieval (devel)
 
+* add iso3 as a data set of the package.gss
+* remove `get_climate_nam_grids()`
+* raster is no longer a dependency of the package.
+* remove fontawesome-related function (see R package fontawesome).
+* land-use urls have been updated. 
 * `get_can_land_use()` now properly checks whether the zip file has been downloaded before.
 * `get_can_land_use()` now returns the path to the `.tif` file.
 
